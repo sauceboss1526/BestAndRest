@@ -6,7 +6,7 @@
 
  
 
- Rookiesdata -->  List of rookies amd their respective draft information.
+ rookiesdata -->  List of rookies amd their respective draft information.
                     -Draft Information includes:
                     -year: Year player was selected in NHL draft. Datatype: integer.
                     -player: Name of selected player. Datatype: string object.
