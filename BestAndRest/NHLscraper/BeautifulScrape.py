@@ -6,6 +6,7 @@ returns:
 nhlscraper: class method that uses BeautifulSoup to scrape nhl records website and land it in a csvfile.
 
 """
+%pip install lxml
 import pandas as pd
 import numpy as np 
 from bs4 import BeautifulSoup 
