@@ -15,9 +15,5 @@ import csv
 class scrape:
     def __init__(self, websiteurl):
         self = pd.read_html(websiteurl)
-        
-
-
-    def scrapechel(self):
         rookiesdata1 = self
         return rookiesdata1 

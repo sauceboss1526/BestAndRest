@@ -8,11 +8,9 @@ Determine which is the best method of data acquisition in terms of:
 
 -time spent learning method
 
--time spent executing code
 
 -how easy is it to land data into Pandas 
 
--simplicity of parsing syntax 
                 
 # Methods
 The following methods will be explored:

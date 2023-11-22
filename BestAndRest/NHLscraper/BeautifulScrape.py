@@ -1,9 +1,9 @@
-"""Acquisition of information for NHL Draft first overall picks.
+"""Acquisition of information on NHL Draft first overall picks.
 
 Utilizing BeautifulSoup to scrape data from NHL records website. 
 
 returns:
-nhlscraper: class method that uses BeautifulSoup to scrape nhl records website and land it in a csvfile.
+nhlscraper: class method that uses BeautifulSoup to scrape nhl records website and land it in pandas.
 
 """
 %pip install lxml
@@ -20,9 +20,9 @@ class scrape:
 
     def scrapechel(self):
         soup = BeautifulSoup(self.request.content, "html.parser")
-        table = soup.find('table').text
+        table = soup.find('table').text.copy
         return table
-
+    
 
 
 
