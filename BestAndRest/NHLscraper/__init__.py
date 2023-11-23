@@ -1,0 +1,1 @@
+""" Infrences and insight from NHL first round picks and their data on the open internet. """
