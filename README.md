@@ -1,5 +1,5 @@
 # BestAndRest
-Discovering methods of obtaining data on the open internet. Get a taste of BeautifulSoup
+Discovering methods of obtaining data on the open internet. Come have a taste of BeautifulSoup
 
 # Scope
 Determine which is the best method of data acquisition in terms of:
