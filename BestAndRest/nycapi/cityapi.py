@@ -46,28 +46,33 @@ class apic:
     
         newcsv = resultados.to_csv(name)
         return resultados, newcsv
-    
+
 class analysis:
     """analyzing parking tickets data
     returns:
     read: read data and create pandas dataframe with parking violations data 
     dapp: data analytics preprocessor will separate variables and drop ones deemed unnecessary 
-    table1:
-    table2:
-    table3:
+    table1: bar chart of violations per vehicle body type
+    table2: bar chart of violations per vehicle make
+
 
     """
-    def read(self, csvname):
+    def __init__(self, csvname):
         self.df = pd.read_csv(csvname)
 
-    def dapp(self):
-        categorical_variables = [self.df.select_dtypes(include = object)]
-        numerical_variables = [self.df.select_dtypes(exclude = object)]
-        no_var = [i for i in numerical_variables if self.df[i].std() == 0]
-        high_card = [i for i in categorical_variables if self.df[i].value_counts().index > 200]
-        categorical_variables.drop(high_card)
-        numerical_variables.drop(no_var)
-        return numerical_variables, categorical_variables 
+    def bar1(self):
+        table1 = self.df.groupby('vehicle_body_type').agg(violations =('summons_number', 'count')).reset_index().sort_values(by = 'violations', ascending  = False).head(8)
+        fig, ax = plt.subplots(figsize = (16,6))
+        sns.barplot(x = 'vehicle_make', y = 'violations', data = table2)
+        return plt.show()
+
+
+    def bar2(self):
+        table2 = self.df.groupby('vehicle_make').agg(violations =('summons_number', 'count')).reset_index().sort_values(by = 'violations', ascending  = False).head(8)
+        fig, ax = plt.subplots(figsize = (16,6))
+        sns.barplot(x = 'vehicle_make', y = 'violations', data = table2)
+        return plt.show()
+    
     
 
 

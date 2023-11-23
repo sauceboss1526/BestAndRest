@@ -11,4 +11,9 @@ from xml.etree import ElementTree
 class xmlpy:
     """returns 
     """
-    def xmlparse(self):
+    def xmlparsing(self):
+        response = requests.get('https://www.jewishvirtuallibrary.org/palestinian-rocket-and-mortar-attacks-against-israel')
+        if response.ok:
+            return root = ElementTree.fromstring(response.content)
+            else:
+                raise Exception('Could not parse')
