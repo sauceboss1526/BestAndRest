@@ -14,6 +14,9 @@ import csv
 
 class scrape:
     def __init__(self, websiteurl):
-        self = pd.read_html(websiteurl)
-        rookiesdata1 = self
-        return rookiesdata1 
+        self.df = pd.read_html(websiteurl)[0]
+    
+    def reader(self):
+        table = self.df
+        return table
+
