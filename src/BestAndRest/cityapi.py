@@ -3,19 +3,22 @@
 Utilizing access to the City of New York API 
 
 Returns:
-results: a pandas dataframe of traffic violation data that can be downloaded by the "last" apic class method.
-A unique feature about the City of New York API is that it has unique endpoints to receive data in csv format for each dataset.
-
+    apic: class that connects and returns to City of New York API
+    analysis: analysis of data obtained from City of New York API
 
 """
-
 import sodapy
 import pandas as pd 
 import csv
 from sodapy import Socrata
 import requests
-
+import matplotlib.pyplot as plt
+import seaborn as sns
 class apic:
+    """
+    returns:
+        results:  Utilizes client to connect to desired dataset in City of New York API for public data
+    """
     def __init__(self, endpointurl):
         """
         initializes client to connect to City of New York API for public datasets.
@@ -26,11 +29,13 @@ class apic:
         returns: client that connects to City of New York API for public datasets
         
         """
-        self = Socrata(endpointurl, None)
+    self = Socrata(endpointurl, None)
 
     def results(self, endpointdf, records, name):
         """ 
         Utilizes client to connect to desired dataset in City of New York API for public data
+
+        args:
 
         endpointdf(str): the dataset url in the api 
 
@@ -42,22 +47,24 @@ class apic:
 
         """
         data = self.get(endpointdf, records)
-        resultados = pd.DataFrame.from_records(data)
+        results = pd.DataFrame.from_records(data)
     
-        newcsv = resultados.to_csv(name)
-        return resultados, newcsv
+        newcsv = results.to_csv(name)
+        return results, newcsv
 
 class analysis:
-    """analyzing parking tickets data
-    returns:
+    """Analyzing parking tickets data
+
+    Returns:
     read: read data and create pandas dataframe with parking violations data 
-    dapp: data analytics preprocessor will separate variables and drop ones deemed unnecessary 
     table1: bar chart of violations per vehicle body type
     table2: bar chart of violations per vehicle make
 
 
     """
     def __init__(self, csvname):
+        """
+        """
         self.df = pd.read_csv(csvname)
 
     def bar1(self):
